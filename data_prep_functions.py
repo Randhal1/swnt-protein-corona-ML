@@ -367,7 +367,9 @@ def clean_up_data_biopy(raw_data):
             seq_data = temp_df
             first_pass = False
         else:
-            seq_data = seq_data.append(temp_df)
+            # Modified by Firebird 10/17/2025
+            #seq_data = seq_data.append(temp_df)
+            seq_data = pd.concat([seq_data, temp_df])
     
     aa_list = ['A','R','N','D','C','E','Q','G','H','I','L','K','M','F','P','S','T','W','Y','V']
     aa_list.sort()
@@ -719,7 +721,11 @@ def accession_expansion(data):
             to_add_list = i.split(';') # break list
 
             for j in to_add_list: # go through each list member
-                data = data.append({'Accession':j, 'Corona':corona_value}, ignore_index=True) # make a new column for each
+                # Modified by Firebird 10/17/2025
+                #data = data.append({'Accession':j, 'Corona':corona_value}, ignore_index=True) # make a new column for each
+                # Define a temporary df to concat 
+                tdf= pd.DataFrame({'Accession':[j], 'Corona':[corona_value]}) # 10/17/2025
+                data = pd.concat([data, tdf], ignore_index=True)
 
             data = data.loc[data['Accession'] != i] # delete the original index (may not be needed will be auto deleted later anyway)
     return data
