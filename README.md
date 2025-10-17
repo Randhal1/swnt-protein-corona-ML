@@ -11,35 +11,35 @@ Codebase to pair with "Supervised Learning Model Predicts Protein Adsorption to 
 
 ## Included Files and What They Do
 
-1. **Prep for NetSurfP** (Jupyter Notebook) 
+1. **01-prep_for_netsurfp.ipynb** (Jupyter Notebook) 
 
     * This script collects data for processing with **NetSurfP 2.0** it will generate a text file. Copy this text file into the prompt on the NetSurfP 2.0 website. Download data and place into an excel sheet then revisit this script and let it process the excel sheet. 
 
-2. **Power Study Script** (Jupyter Notebook)
+2. **02-Power_Study_Script.ipynb** (Jupyter Notebook)
 
    * Reproduces the labeling scheme used in figure 1b of the published work.
-   * *Requires* the output of __Prep For NetsurP__ 
+   * *Requires* the output of __01-prep_for_netsurfp.ipynb__ 
 
-3. **Data Workup Script** (Jupyter Notebook)
+3. **03-data_workup_script.ipynb** (Jupyter Notebook)
     
    * This script is used to do the majority of the prepping for running through 
-   * *Requires* the output of __Prep For NetsurP__ and Power Value from __Power Study Script__
+   * *Requires* the output of __01-prep_for_netsurfp.ipynb__ and Power Value from __02-Power_Study_Script.ipynb__
 
-4. **Classification Script** (Jupyter Notebook)
+4. **04-classification_script.ipynb** (Jupyter Notebook)
 
     * Reproduces the classification experiments from the manuscript
-    * *Requires* the output of __Data Workup Script__ 
+    * *Requires* the output of __03-data_workup_script.ipynb__ 
 
 
-5. **Hyperparameter Optimization** (Jupyter Notebook)
+5. **041-hyperparameter_optimization.ipynb** (Jupyter Notebook)
 
     * Uses GridSearchCV to find the best hyperparameters. Be Careful here as runtimes can rapidly increase with too many parameters
-    * *Requires* the output of __Data Workup Script__ 
+    * *Requires* the output of __03-data_workup_script.ipynb__ 
 
-6. **Different Classifier Testing** (Jupyter Notebook)
+6. **042-different_classifier_testing.ipynb** (Jupyter Notebook)
 
     * Uses Generic Architectures to Identify the Best Architecture for the Data
-    * *Requires* the output of __Data Workup Script__ 
+    * *Requires* the output of __03-data_workup_script.ipynb__ 
 
 6. **Data Prep Functions, Interpro Scraping, UniProt NetSurfP Scraping** (Python Scripts)
 
