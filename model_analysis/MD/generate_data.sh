@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 grep -i accuracy *txt | awk '{print }' | awk '{print $2}' > accuracy.csv 
 grep -i auc *txt | awk '{print }' | awk '{print $2}' > auc.csv 
